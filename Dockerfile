@@ -14,8 +14,10 @@ RUN venv/bin/pip install -r requirements/docker.txt
 
 COPY app app
 COPY migrations migrations
-COPY flasky.py config.py boot.sh ./
+COPY flasky.py config.py ./
 
 # run-time configuration
 EXPOSE 5000
 ENTRYPOINT ["./boot.sh"]
+
+CMD ["python", "app.py"]
